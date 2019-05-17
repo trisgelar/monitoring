@@ -15,8 +15,11 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'documents.apps.DocumentsConfig',
-    'students.apps.StudentsConfig',
     'pages.apps.PagesConfig',
+
+    'administrators.apps.AdministratorsConfig',
+    'writers.apps.WritersConfig',
+    'editors.apps.EditorsConfig',
 
     'rules.apps.AutodiscoverRulesConfig',
 

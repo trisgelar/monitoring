@@ -1,6 +1,6 @@
 # README
 
-Aplikasi Monitoring Dokumen Tugas Akhir/PKM 
+Aplikasi Monitoring Dokumen Tugas Akhir/PKM/Naskah Buku 
 By Trisna Gelar
 
 ### PREV TEST DB
