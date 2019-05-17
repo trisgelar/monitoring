@@ -1,63 +1,59 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 # from django.contrib.contenttypes.models import ContentType
 # from django.contrib.contenttypes.fields import GenericForeignKey
 # from django.template.loader import render_to_string
 # from django.utils.safestring import mark_safe
-# from .fields import OrderField
+from .fields import OrderField
 
-# class Subject(models.Model):
-# 	title = models.CharField(max_length=200)
-# 	slug = models.SlugField(max_length=200, unique=True)
+class Subject(models.Model):
+	title = models.CharField(max_length=200)
+	slug = models.SlugField(max_length=200, unique=True)
 
-# 	class Meta:
-# 		ordering = ['title']
+	class Meta:
+		ordering = ['title']
 
-# 	def __str__(self):
-# 		return self.title
+	def __str__(self):
+		return self.title
 
-# class Course(models.Model):
-# 	owner = models.ForeignKey(
-# 		User,
-# 		related_name='courses_created',
-# 		on_delete=models.CASCADE
-# 		)
+class Document(models.Model):
+	owner = models.ForeignKey(
+		User,
+		related_name='documents_created',
+		on_delete=models.CASCADE
+		)
 
-# 	subject = models.ForeignKey(
-# 		Subject,
-# 		related_name='courses',
-# 		on_delete=models.CASCADE
-# 		)
-# 	title = models.CharField(max_length=200)
-# 	slug = models.SlugField(max_length=200, unique=True)
-# 	overview = models.TextField()
-# 	created = models.DateTimeField(auto_now_add=True)
-# 	students = models.ManyToManyField(User, 
-# 		related_name='courses_joined',
-# 		blank=True
-# 	)
+	subject = models.ForeignKey(
+		Subject,
+		related_name='documents',
+		on_delete=models.CASCADE
+		)
+	title = models.CharField(max_length=200)
+	slug = models.SlugField(max_length=200, unique=True)
+	overview = models.TextField()
+	created = models.DateTimeField(auto_now_add=True)
 
-# 	class Meta:
-# 		ordering = ['-created']
+	class Meta:
+		ordering = ['-created']
 
-# 	def __str__(self):
-# 		return self.title
+	def __str__(self):
+		return self.title
 
-# class Module(models.Model):
-# 	course = models.ForeignKey(
-# 		Course,
-# 		related_name='modules',
-# 		on_delete=models.CASCADE
-# 		)
-# 	title = models.CharField(max_length=200)
-# 	description = models.TextField(blank=True)
-# 	order = OrderField(blank=True, for_fields=['course'])
+class Chapter(models.Model):
+	document = models.ForeignKey(
+		Document,
+		related_name='chapters',
+		on_delete=models.CASCADE
+		)
+	title = models.CharField(max_length=200)
+	description = models.TextField(blank=True)
+	order = OrderField(blank=True, for_fields=['document'])
 
-# 	class Meta:
-# 		ordering = ['order']
+	class Meta:
+		ordering = ['order']
 
-# 	def __str__(self):
-# 		return '{}. {}'.format(self.order, self.title)
+	def __str__(self):
+		return '{}. {}'.format(self.order, self.title)
 
 
 # class Content(models.Model):

@@ -14,3 +14,10 @@ By Trisna Gelar
 	git remote add origin https://github.com/trisgelar/monitoring.git
 	git push -u origin master
 ```
+
+
+### UI Per User
+
+1. Administrators
+2. Writers
+3. Editors

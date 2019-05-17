@@ -17,9 +17,7 @@ INSTALLED_APPS = [
     'documents.apps.DocumentsConfig',
     'pages.apps.PagesConfig',
 
-    'administrators.apps.AdministratorsConfig',
-    'writers.apps.WritersConfig',
-    'editors.apps.EditorsConfig',
+    # 'dashboards.apps.DashboardsConfig',
 
     'rules.apps.AutodiscoverRulesConfig',
 
